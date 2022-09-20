@@ -5,6 +5,7 @@ export interface Curso {
 
 export interface Aluno {
   id: number;
+  idcurso: number;
   nomealuno: string;
   // curso = new Curso();
 }
