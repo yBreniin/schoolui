@@ -9,18 +9,12 @@ import { Curso } from '../core/model';
 })
 export class CursosService {
 
+  private readonly API = '/src/assets/cursos.json' // ligação com api
+
   constructor(private http: HttpClient) { }
 
-  list(): Curso[] {
-    return [
-      {"id": 1, "nomecurso": "Desenvolvimento de Sistemas"},
-      {"id": 2, "nomecurso": "Química"},
-      {"id": 3, "nomecurso": "Administração"},
-      {"id": 4, "nomecurso": "Contabilidade"},
-      {"id": 5, "nomecurso": "Logística"},
-      {"id": 6, "nomecurso": "Marketing"},
-      {"id": 7, "nomecurso": "Edificações"}
-    ]
+  list() {
+    return this.http.get<Curso[]>(this.API); // puxar os dados do cursos.json assets
   }
 }
 
